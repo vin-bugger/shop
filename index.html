@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,21 +21,24 @@
         form {
             position: relative;
             z-index: 1;
-            padding: 20px; 
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
             text-align: center;
             display: flex;
             flex-direction: column;
-            overflow: hidden; /* Make sure the bubble doesn't overflow the form */
+            overflow: hidden;
+            /* Make sure the bubble doesn't overflow the form */
             position: relative;
-            border: 2px solid #b26dc5; /* Whitish border */
+            border: 2px solid #b26dc5;
+            /* Whitish border */
             transition: border-color 0.3s ease-in-out;
         }
 
         form:hover {
-            border-color: #76f37c; /* Greenish border on hover */
+            border-color: #76f37c;
+            /* Greenish border on hover */
         }
 
         form::before {
@@ -47,6 +51,10 @@
             background: url('image.jpg') center center / cover;
             opacity: 0.5;
             z-index: -1;
+        }
+
+        form:hover .profile-image {
+            box-shadow: 0 0 20px rgba(206, 225, 121, 0.96);
         }
 
         label {
@@ -95,27 +103,55 @@
             animation: moveBubble 4s linear infinite;
         }
 
+        .profile-image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .profile-image {
+            width: 110px;
+            height: 100px;
+            border-radius: 50%;
+            border: .5px solid rgb(139, 188, 223);
+            box-shadow: 0 0 20px rgba(169, 27, 127, 0.96);
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        .profile-image:hover {
+            box-shadow: 0 0 20px rgba(162, 95, 19, 0.96);
+        }
+
         @keyframes moveBubble {
             0% {
                 transform: translate(0, 0);
             }
+
             25% {
                 transform: translate(100%, 0);
             }
+
             50% {
                 transform: translate(100%, 100%);
             }
+
             75% {
                 transform: translate(0, 100%);
             }
+
             100% {
                 transform: translate(0, 0);
             }
         }
     </style>
 </head>
+
 <body>
     <form action="/submit" method="post">
+        <div class="profile-image-container">
+            <img class="profile-image" src="profile.png" alt="Profile Image">
+        </div>
         <h2>Unlock Your Fashion</h2>
         <label for="name">Name:</label>
         <input type="text" name="name" placeholder="Enter your name" required>
@@ -130,4 +166,5 @@
         </div>
     </form>
 </body>
+
 </html>
