@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSHOUSE | Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('8_adcs1.jpg') center center / cover;
+            height: 100vh;
+        }
+
+        form {
+            position: relative;
+            z-index: 1;
+            padding: 20px; 
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Make sure the bubble doesn't overflow the form */
+            position: relative;
+            border: 2px solid #b26dc5; /* Whitish border */
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        form:hover {
+            border-color: #76f37c; /* Greenish border on hover */
+        }
+
+        form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('image.jpg') center center / cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            position: relative;
+            z-index: 1;
+        }
+
+        input[type="submit"] {
+            background-color: #03fcbe;
+            color: #b503fc;
+            cursor: pointer;
+            position: relative;
+            width: 55%;
+            align-self: center;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #88e38c;
+        }
+
+        .bubble-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            background-color: #03fcbe;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: moveBubble 4s linear infinite;
+        }
+
+        @keyframes moveBubble {
+            0% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(100%, 0);
+            }
+            50% {
+                transform: translate(100%, 100%);
+            }
+            75% {
+                transform: translate(0, 100%);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <form action="/submit" method="post">
+        <h2>Unlock Your Fashion</h2>
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+
+        <input type="submit" value="Submit">
+
+        <div class="bubble-container">
+            <div class="bubble"></div>
+        </div>
+    </form>
+</body>
+</html>
